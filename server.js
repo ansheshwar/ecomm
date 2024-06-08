@@ -10,6 +10,13 @@ const db_config = require("./configs/db.config")
 const user_model = require("./models/user.model")
 const bcrypt = require("bcryptjs")
 
+// express.json() is the middleware
+/**
+ * postman mai request body json format hai 
+ * hamari application node js envirn=onment mai hai jo sirf js object samjhta hai 
+ * to isliye pehle hume json ko js object mai convert karna hai 
+ */
+app.use(express.json())
 /**
  * create an admin user at the starting of the application
  * if not already present
@@ -51,6 +58,13 @@ async function init() {
         console.log("error while creating admin:", err)
     }
 }
+
+/**
+ * Stich the route to the server
+ */
+
+// calling the route and passing the app object
+require("./routes/auth.routes")(app)
 
 /**
  * Start the server
