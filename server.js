@@ -63,9 +63,11 @@ async function init() {
  * Stich the route to the server
  */
 
-// calling the route and passing the app object
+// calling the route and passing the app object for auth 
 require("./routes/auth.routes")(app)
 
+// calling the route and passing the app object for category
+require("./routes/category.routes")(app)
 /**
  * Start the server
  */
